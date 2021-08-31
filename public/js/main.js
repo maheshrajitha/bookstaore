@@ -1,4 +1,4 @@
-let baseUrl = "http://localhost:8080"
+let baseUrl = "https://test.polescrap.com"
 // let adminDashboardUrl = "http://localhost:3000"
 
 // let baseUrl = "https://tigereyejewellery.com";
