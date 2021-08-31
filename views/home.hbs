@@ -1,0 +1,346 @@
+{{> navbar}}
+<section id="carousel">
+  <!--Carousel Wrapper-->
+  <div
+    id="carousel-example-2"
+    class="carousel slide carousel-fade"
+    data-ride="carousel"
+  >
+    <!--Indicators-->
+    {{!-- <ol class="carousel-indicators">
+      <li
+        data-target="#carousel-example-2"
+        data-slide-to="0"
+        class="active"
+      ></li>
+
+      <li data-target="#carousel-example-2" data-slide-to="1"></li>
+      <li data-target="#carousel-example-2" data-slide-to="2"></li>
+    </ol> --}}
+    <!--/.Indicators-->
+    <!--Slides-->
+    <div class="carousel-inner" role="listbox">
+     
+      
+        {{#each carouselData }}
+         <div id ="carousel-{{@index}}" class="carousel-item">
+        <div class="view">
+          <img
+            class="d-block carousel-img"
+            src="{{this.image_url}}"
+            alt="First slide"
+          />
+          <div class="mask rgba-black-light"></div>
+        </div>
+        <div class="carousel-caption-o">
+          <h3 class="h3-responsive animate__animated animate__fadeInUp">
+            {{this.title}}
+          </h3>
+          <p class="animate__animated animate__fadeInUp">
+            {{this.caption}}
+          </p>
+          <a
+            href="/item/get-new-arrival"
+            class="btn btn-primary animate__animated animate__fadeInUp"
+            >more</a
+          >
+        </div>
+      </div>
+        {{/each}}
+     
+      {{!-- <div class="carousel-item active">
+        <div class="view">
+          <img
+            class="d-block carousel-img"
+            src="/img/ca9.jpg"
+          
+            alt="First slide"
+          />
+          <div class="mask rgba-black-light"></div>
+        </div>
+        <div class="carousel-caption-o">
+          <h3 class="h3-responsive animate__animated animate__fadeInUp">
+            Cool down with aquamarine
+          </h3>
+          <p class="animate__animated animate__fadeInUp">
+            Cool down Aquamarine
+          </p>
+          <a
+            href="#"
+            class="btn btn-primary animate__animated animate__fadeInUp"
+            >more</a
+          >
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <!--Mask color-->
+        <div class="view">
+          <img
+            class="d-block carousel-img"
+            src="/img/ca5.jpg"
+            
+            alt="Second slide"
+          />
+          <div class="mask rgba-black-strong"></div>
+        </div>
+        <div class="carousel-caption-o">
+          <h3 class="h3-responsive animate__animated animate__fadeInUp">
+            Cool down with aquamarine
+          </h3>
+          <p class="animate__animated animate__fadeInUp">
+            Cool down Aquamarine
+          </p>
+          <a
+            href="#"
+            class="btn btn-primary animate__animated animate__fadeInUp"
+            >more</a
+          >
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <!--Mask color-->
+        <div class="view">
+          <img
+            class="d-block carousel-img"
+            src="/img/ca4.jpg"
+           
+            alt="Third slide"
+          />
+          <div class="mask rgba-black-slight"></div>
+        </div>
+        <div class="carousel-caption-o">
+          <h3 class="h3-responsive animate__animated animate__fadeInUp">
+            Cool down with aquamarine
+          </h3>
+          <p class="animate__animated animate__fadeInUp">
+            Cool down Aquamarine
+          </p>
+          <a
+            href="#"
+            class="btn btn-primary animate__animated animate__fadeInUp"
+            >more</a
+          >
+        </div>
+      </div> --}}
+     
+      
+   
+    </div>
+  
+    <a
+      class="carousel-control-prev"
+      href="#carousel-example-2"
+      loading="lazy"
+      role="button"
+      data-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a
+      class="carousel-control-next"
+      href="#carousel-example-2"
+      role="button"
+      data-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+    <!--/.Controls-->
+  </div>
+  <!--/.Carousel Wrapper-->
+</section>
+
+
+
+
+<section class="section">
+  <div class="cat-list container">
+    <!-- Harmonize Your Soul -->
+    <h3 class="text-center">Categories</h3>
+    <p class="text-center">
+      lorem ipsum
+    </p>
+  </div>
+
+  <div class="container">
+    <div class="row" id="catogoriesList">
+      
+      {{!-- <div class="col-sm-6 mb-4">
+        <a href="/">
+          <img class="cat-img" src="/img/necklaces.jpg" loading="lazy" alt="First slide" />
+        <div class="cat-name">
+          <h4 class="text-center">Necklaces & Pendants</h4>
+        </div>
+        </a>
+      </div> --}}
+
+      {{!-- <div class="col-sm-6 mb-4">
+        <img class="cat-img" src="/img/formen.jpg"  loading="lazy" alt="First slide" />
+        <div class="cat-name">
+          <h4 class="text-center">For Men</h4>
+        </div>
+      </div>
+
+      
+
+      <div class="col-sm-6 mb-4">
+        <img class="cat-img" src="/img/ring.jpg" loading="lazy" alt="First slide" />
+        <div class="cat-name">
+          <h4 class="text-center">Rings</h4>
+        </div>
+      </div>
+
+      <div class="col-sm-6 mb-4">
+        <img class="cat-img" src="/img/ca3.jpg"  loading="lazy" alt="First slide" />
+        <div class="cat-name">
+          <h4 class="text-center">Bracelets</h4>
+        </div>
+      </div> --}}
+    </div>
+  </div>
+</section>
+
+<section class="new-arivals bg-light">
+  <div class="container">
+    <h1 class="text-center">Brand New Arrivals</h1>
+    <p class="text-center msg">hurry up grab yours now !</p>
+
+    <div class="row new-list">
+      <div id="cats" class="owl-carousel owl-theme">
+        {{#each data}}
+            <div class="item">
+          <div class="col">
+            <a href="/item/get/{{this.id}}" class="text-decoration-none">
+              <img
+                class="cat-img w-100"
+                src="{{this.thumbnail}}"
+                alt="First slide"
+              />
+            </a>
+            <button class="add-wishlist" title="Add To Wishlist">
+              <div class="wish-round">
+                <i class="fa fa-heart" aria-hidden="true"></i>
+              </div>
+            </button>
+
+            <div class="p-3">
+              <a href="/item/get/{{this.id}}" class="text-decoration-none">
+                <p class="text-center prd-name">{{this.name}}</p>
+              </a>
+
+              <p class="tags">Motivation • Success • Wealth</p>
+              <p class="price">{{this.currency}} {{this.convertedPrice}}</p>
+            </div>
+          </div>
+        </div>
+        {{/each}}      
+      </div>
+    </div>
+  </div>
+</section>
+
+{{!-- <section class="new-arivals pt-5 mt-0 bg-light">
+  <div class="container pt-4">
+    <h1 class="text-center">Best Sellers</h1>
+    <p class="text-center msg">our best seller products</p>
+
+    <div class="row new-list">
+      <div id="best" class="owl-carousel owl-theme">
+        <div class="item">
+          <div class="col">
+            <a href="#" class="text-decoration-none">
+              <img
+                class="cat-img w-100"
+                src="/img/prd3.jpg"
+                alt="First slide"
+              />
+            </a>
+            <button class="add-wishlist" title="Add To Wishlist">
+              <div class="wish-round">
+                <i class="fa fa-heart" aria-hidden="true"></i>
+              </div>
+            </button>
+
+            <div class="p-3">
+              <a href="#" class="text-decoration-none">
+                <p class="text-center prd-name">Name of the product</p>
+              </a>
+
+              <p class="tags">Motivation • Success • Wealth</p>
+              <p class="price">$20</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="col">
+            <a href="#" class="text-decoration-none">
+              <img
+                class="cat-img w-100"
+                src="/img/prd2.jpg"
+                alt="First slide"
+              />
+            </a>
+            <button class="add-wishlist" title="Add To Wishlist">
+              <div class="wish-round">
+                <i class="fa fa-heart" aria-hidden="true"></i>
+              </div>
+            </button>
+
+            <div class="p-3">
+              <a href="#" class="text-decoration-none">
+                <p class="text-center prd-name">Name of the product</p>
+              </a>
+
+              <p class="tags">Motivation • Success • Wealth</p>
+              <p class="price">$20</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="col">
+            <a href="" class="text-decoration-none">
+              <img
+                class="cat-img w-100"
+                src="/img/prd1.jpg"
+                alt="First slide"
+              />
+            </a>
+            <button class="add-wishlist" title="Add To Wishlist">
+              <div class="wish-round">
+                <i class="fa fa-heart" aria-hidden="true"></i>
+              </div>
+            </button>
+
+            <div class="p-3">
+              <a href="#" class="text-decoration-none">
+                <p class="text-center prd-name">Name of the product</p>
+              </a>
+
+              <p class="tags">Motivation • Success • Wealth</p>
+              <p class="price">$20</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> --}}
+
+<div
+  id="alert"
+  class="d-none text-lg-center alert alert-success alert-dismissible fade show mt-lg-2"
+  role="alert"
+>
+  <strong>Configuration !</strong> Your account created successfully, please
+  login
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+{{> footer}}

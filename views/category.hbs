@@ -1,0 +1,164 @@
+{{> navbar}}
+
+<!-- <button href="#" class="btn-secondary  float">
+  <i class="fa fa-sliders mx-3 my-3"></i>
+</button> -->
+<section class="category">
+  <div class="container">
+    <h2 class="cat-title">
+      {{ name }}
+    </h2>
+    <p class="cat-sub-title">So much more than ordinary jewelry</p>
+  </div>
+</section>
+
+<!-- filter Modal -->
+<div
+  class="modal left fade border-0"
+  id="filterModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <form type="get" id="filterForm">
+    <div class="modal-dialog border-0" role="document">
+      <div class="modal-content border-0">
+        <div class="modal-header border-0">
+          <h5 class="modal-title mt-5">Filter Products</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Color</label>
+            <select class="form-control" id="filterColor">
+              <option value="all" >All</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Price</label>
+            <select class="form-control" id="filterPrice">
+              <option value="DESC">High to low</option>
+              <option value="ASC">Low to High</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Gender</label>
+            <select class="form-control" id="filterGender">
+              <option value="all">All</option>
+              <option value="0">Unisex</option>
+              <option value="1">Male</option>
+              <option value="2">Female</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer border-0">
+          <button type="submit" class="btn btn-secondary w-100">
+            Apply filter
+          </button>
+          <button class="btn btn-info w-100" id="filterReset">
+            Reset
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<section class="mt-4 filter" style="z-index: -100 !important">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <p class="text-left">
+          <button
+            class="btn px-2"
+            style=""
+            title="Filter Products"
+            data-toggle="modal"
+            data-target="#filterModal"
+          >
+            <i class="fa fa-sliders mr-1"></i> Filter
+          </button>
+        </p>
+      </div>
+    </div>
+    <!-- <hr /> -->
+  </div>
+</section>
+
+<section class="new-arivals categorys">
+  <div class="container">
+    <div class="row">
+      {{#if data}}
+        {{#each data}}
+      <div class="col-sm-12 col-lg-4">
+        <a href="/item/get/{{this.id}}" class="text-decoration-none">
+          <img
+            class="cat-img w-100"
+            loading="lazy"
+            src="{{this.thumbnail}}"
+            alt="First slide"
+          />
+        </a>
+        <button id="{{this.id}}wishlist" onclick="addTowishList('{{this.id}}')" class="add-wishlist" title="Add To Wishlist" >
+          <div class="wish-round">
+            <i class="fa fa-heart" aria-hidden="true"></i>
+          </div>
+        </button>
+
+        <div class="p-3">
+          <a href="/item/get/{{this.id}}" class="text-decoration-none">
+            <p class="text-center prd-name">{{this.name}}</p>
+          </a>
+
+          <p class="tags">Motivation • Success • Wealth</p>
+          <p class="price">{{this.currency}} {{this.convertedPrice}}</p>
+        </div>
+      </div>
+      {{/each}}
+      {{else}}
+      <div class="col-12 text-center">
+       <h6 class="text-center text-uppercase text-info">No Items Available !</h6>
+      </div>
+      {{/if}}
+
+     
+
+      <!-- <div class="col-sm-12 col-lg-4">
+        <a href="/product/product_name" class="text-decoration-none">
+          <img
+            class="cat-img w-100"
+            loading="lazy"
+            src="/img/prd1.jpg"
+            alt="First slide"
+          />
+        </a>
+        <button class="add-wishlist" title="Add To Wishlist">
+          <div class="wish-round">
+            <i class="fa fa-heart" aria-hidden="true"></i>
+          </div>
+        </button>
+
+        <div class="p-3">
+          <a href="/product/product_name" class="text-decoration-none">
+            <p class="text-center prd-name">Name of the product</p>
+          </a>
+
+          <p class="tags">Motivation • Success • Wealth</p>
+          <p class="price">$20</p>
+        </div>
+      </div> -->
+
+     
+    </div>
+  </div>
+</section>
+
+{{> footer}}

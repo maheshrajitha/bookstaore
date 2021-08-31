@@ -1,0 +1,196 @@
+{{> navbar}}
+
+<section class="prd-view mt-3">
+  <div class="path">
+    <div class="container">
+      <p><a href="" class="">Home /</a> product</p>
+    </div>
+  </div>
+
+  <div class="container product">
+    <div class="row">
+      <div class="col-sm-12 col-lg-7">
+        <div id="single" class="owl-carousel owl-theme">
+          {{#each data.itemImage}}
+          <div class="item">
+            <img class="w-100" src="{{ this.image_url }}" alt="Third slide" />
+          </div>
+          {{/each}}
+        </div>
+      </div>
+      <!-- justify-content-center align-self-center -->
+      <div
+        class="col-sm-12 col-lg-5 p-3 justify-content-center align-self-center"
+      >
+        <h2 class="text-center name">{{ data.item.name }}</h2>
+        <p class="text-center discription">Read • Reading • Knowledge</p>
+
+        <div class="text-center">
+          <select class="" disabled id="priceselect">
+            {{#each data.itemSize}}
+            <option value="{{@index}}">{{this.currency}} {{ this.convertedPrice }}</option>
+            {{/each}}
+          </select>
+        </div>
+        <div class="text-center">
+          <select class="mb-3" disabled id="quantitySelect">
+            {{#each data.itemSize}}
+            <option value="{{@index}}">Quantity {{ this.quantity }}</option>
+            <option class="d-none" value="quantityVal{{@index}}">
+              {{ this.quantity }}
+            </option>
+            {{/each}}
+          </select>
+        </div>
+
+        <div class="text-center">
+          <button
+            onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+            class="btn btn-light"
+          >
+            <i class="fa fa-minus" aria-hidden="true"></i>
+          </button>
+
+          <input
+            id="quantity"
+            class="quantity"
+            min="1"
+            {{!--
+            max="10"
+            --}}
+            disabled
+            name="quantity"
+            value="1"
+            type="number"
+          />
+
+          <button
+            onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+            class="btn btn-light"
+          >
+            <i class="fa fa-plus" aria-hidden="true"></i>
+          </button>
+
+          {{!-- <div class="text-center">
+            <select
+              class="form-control mt-3"
+              onchange="sizeOnSelect()"
+              id="sizeOption"
+            >
+              {{#each data.itemSize}}
+              <option value="{{@index}}">{{ this.size }}</option>
+              {{/each}}
+            </select>
+          </div> --}}
+          {{!-- <select
+            class="form-control mt-3"
+            onchange="sizeOnSelect()"
+            id="sizeIds"
+            hidden
+
+          >
+            {{#each data.itemSize}}
+            <option value="{{@index}}">{{ this.id }}</option>
+            {{/each}}
+          </select> --}}
+
+          {{!-- <div class="text-center">
+            <select class="form-control mt-3" id="exampleFormControlSelect1">
+              <option disabled selected>Select Color Option</option>
+              {{#each data.itemColors}}
+              <option>{{ this.name }}</option>
+              {{/each}}
+            </select>
+          </div> --}}
+        </div>
+
+        <input type="hidden" id="selectedItemId" value="{{data.item.id}}">
+        <button data-itemId='{{ data.item.id }}' id="addToCart" class="btn btn-secondary w-100 mt-3 mb-2">Add To Cart</button>
+        <button
+          class="btn btn-info w-100"
+          onclick="addTowishList('{{ data.item.id }}')"
+        >
+          <i class="fa fa-heart-o mr-1" aria-hidden="true"></i> Add To Wishlist
+        </button>
+        {{> payments}}
+
+        <div class="text-center mt-3">
+          <i class="fa fa-paypal mr-1" aria-hidden="true"></i>
+          <i class="fa fa-cc-visa mr-1" aria-hidden="true"></i>
+          <i class="fa fa-cc-mastercard mr-1" aria-hidden="true"></i>
+          <i class="fa fa-cc-amex mr-1" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="description-area">
+          <h5>Synopsis</h5>
+          <p>{{ data.item.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  $(window).on("load",function(){
+    $.ajax({
+      method:"GET",
+      url:`${baseUrl}/api/purchaise/methods`,
+      contentType:"application/json; charset=utf-8",
+      dataType: "json",
+      xhrFields: {
+        withCredentials: true,
+      },
+      success:function (data,status,xhr){
+        $("#paymentModalToggler").removeClass("d-none")
+        data.forEach(gateway=>{
+          $("#paymentModalBody").append(`
+            <button data-gatewayId=${gateway.id} id="${gateway.gateway_name}" class='btn pay-btn mt-3 btn-info text-dark btn-block'>
+              Checkout with ${gateway.gateway_name}
+            </button>
+          `)
+        })
+      },
+      error: function(xhr){
+      }
+    })
+  })
+
+  $(document).on("click","#Stripe",function(){
+    $.ajax({
+      method:"POST",
+      data: JSON.stringify({
+        itemId: $("#selectedItemId").val(),
+        sizeId:$("#sizeIds option:selected").text(),
+        gatewayId:$(this).attr("data-gatewayId"),
+        qty:$("#quantity").val()
+      }),
+      url: `${baseUrl}/api/purchaise/stripe`,
+      contentType: "application/json; charset=utf-8",
+      dataType: "json",
+      xhrFields: {
+        withCredentials: true,
+      },
+      success: function(data){
+        window.location.replace(data.redirectUri)
+      },
+      error: function(xhr){
+        if(xhr.status === 401){
+          $("#paymentModal").modal("toggle");
+          $("#loginModal").modal("toggle");
+        }else{
+          $.toast({
+            heading: 'Warning',
+            text: 'Payment Failed !!',
+            showHideTransition: 'slide',
+            icon: 'warning'
+          })
+        }
+      }
+    })
+  })
+</script>
+
+{{> footer}}

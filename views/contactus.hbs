@@ -1,0 +1,231 @@
+{{> navbar}}
+
+<!-- <button href="#" class="btn-secondary  float">
+  <i class="fa fa-sliders mx-3 my-3"></i>
+</button> -->
+<section class="category mb-5">
+  <div class="container">
+    <h2 class="cat-title mt-2">CONTACT-US</h2>
+  </div>
+</section>
+
+<section class="about-us mb-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <h6 class="text-bolder text-uppercase mb-4">contact-us</h6>
+
+        <p>
+          <i class="fa fa-map-marker mr-2" aria-hidden="true"></i
+          ><strong>R K I Dhananjaya</strong>
+          No 1 Kithulpe road Karapincha Hidellana Ratnapura (zip code 70000)
+          Sabaragamuwa (province) Sri Lanka
+        </p>
+
+        <p class="m-0">
+          <i class="fa fa-phone mr-2" aria-hidden="true"></i>0718809843
+        </p>
+        <p class="m-0">
+          <i class="fa fa-phone mr-2" aria-hidden="true"></i>0740901155
+        </p>
+        <p class="m-0">
+          <i class="fa fa-whatsapp mr-1" aria-hidden="true"></i> 0740961155
+        </p>
+        <div class="mt-5 pr-lg-4">
+          <div id="map-canvas"></div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <h6 class="text-bolder text-uppercase mb-4">send us a mail</h6>
+
+        <form
+          class="shake"
+          role="form"
+          method="post"
+          id="contactForm"
+          name="contact-form"
+          data-toggle="validator"
+        >
+          <!-- Name -->
+          <div class="form-group label-floating">
+            <label class="control-label" for="name">Name</label>
+            <input
+              class="form-control"
+              id="name"
+              type="text"
+              name="name"
+              required
+              data-error="Please enter your name"
+            />
+            <div class="help-block with-errors"></div>
+          </div>
+          <!-- email -->
+          <div class="form-group label-floating">
+            <label class="control-label" for="email">Email</label>
+            <input
+              class="form-control"
+              id="email"
+              type="email"
+              name="email"
+              required
+              data-error="Please enter your Email"
+            />
+            <div class="help-block with-errors"></div>
+          </div>
+          <!-- Subject -->
+          <div class="form-group label-floating">
+            <label class="control-label">Subject</label>
+            <input
+              class="form-control"
+              id="msg_subject"
+              type="text"
+              name="subject"
+              required
+              data-error="Please enter your message subject"
+            />
+            <div class="help-block with-errors"></div>
+          </div>
+          <!-- Message -->
+          <div class="form-group label-floating">
+            <label for="message" class="control-label">Message</label>
+            <textarea
+              class="form-control"
+              rows="3"
+              id="message"
+              name="message"
+              required
+              data-error="Write your message"
+            ></textarea>
+            <div class="help-block with-errors"></div>
+          </div>
+          <!-- Form Submit -->
+          <div class="form-group label-floating">
+            <button
+              class="btn btn-secondary w-100 mt-3"
+              type="submit"
+              id="form-submit"
+            >
+              Send Message
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{!--
+<section class="section-padding section-dark">
+  <div class="container">
+    <div class="row">
+      <!-- Section Titile -->
+      <div class="col-md-12 wow animated fadeInLeft" data-wow-delay=".2s">
+        <h1 class="section-title">Love to Hear From You</h1>
+      </div>
+    </div>
+    <div class="row">
+      <!-- Section Titile -->
+      <div
+        class="col-md-6 mt-3 contact-widget-section2 wow animated fadeInLeft"
+        data-wow-delay=".2s"
+      >
+        <p>
+          It is a long established fact that a reader will be distracted by the
+          readable content of a page when looking at its layout. The point of
+          using Lorem Ipsum is that it has a more-or-less normal distribution of
+          letters, as opposed to using Content.
+        </p>
+
+        <div class="find-widget">
+          Company: <a href="https://hostriver.ro">HostRiver</a>
+        </div>
+        <div class="find-widget">
+          Address: <a href="#">4435 Berkshire Circle Knoxville</a>
+        </div>
+        <div class="find-widget">Phone: <a href="#">+ 879-890-9767</a></div>
+
+        <div class="find-widget">
+          Website: <a href="https://uny.ro">www.uny.ro</a>
+        </div>
+        <div class="find-widget">
+          Program: <a href="#">Mon to Sat: 09:30 AM - 10.30 PM</a>
+        </div>
+      </div>
+      <!-- contact form -->
+      <div class="col-md-6 wow animated fadeInRight" data-wow-delay=".2s">
+        <form
+          class="shake"
+          role="form"
+          method="post"
+          id="contactForm"
+          name="contact-form"
+          data-toggle="validator"
+        >
+          <!-- Name -->
+          <div class="form-group label-floating">
+            <label class="control-label" for="name">Name</label>
+            <input
+              class="form-control"
+              id="name"
+              type="text"
+              name="name"
+              required
+              data-error="Please enter your name"
+            />
+            <div class="help-block with-errors"></div>
+          </div>
+          <!-- email -->
+          <div class="form-group label-floating">
+            <label class="control-label" for="email">Email</label>
+            <input
+              class="form-control"
+              id="email"
+              type="email"
+              name="email"
+              required
+              data-error="Please enter your Email"
+            />
+            <div class="help-block with-errors"></div>
+          </div>
+          <!-- Subject -->
+          <div class="form-group label-floating">
+            <label class="control-label">Subject</label>
+            <input
+              class="form-control"
+              id="msg_subject"
+              type="text"
+              name="subject"
+              required
+              data-error="Please enter your message subject"
+            />
+            <div class="help-block with-errors"></div>
+          </div>
+          <!-- Message -->
+          <div class="form-group label-floating">
+            <label for="message" class="control-label">Message</label>
+            <textarea
+              class="form-control"
+              rows="3"
+              id="message"
+              name="message"
+              required
+              data-error="Write your message"
+            ></textarea>
+            <div class="help-block with-errors"></div>
+          </div>
+          <!-- Form Submit -->
+          <div class="form-submit mt-5">
+            <button class="btn btn-common" type="submit" id="form-submit">
+              Send Message
+            </button>
+            <div id="msgSubmit" class="h3 text-center hidden"></div>
+            <div class="clearfix"></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+--}}
+
+{{> footer}}

@@ -1,0 +1,60 @@
+{{> navbar}}
+
+<!-- <button href="#" class="btn-secondary  float">
+  <i class="fa fa-sliders mx-3 my-3"></i>
+</button> -->
+<section class="category mb-5">
+  <div class="container">
+    <h2 class="cat-title">
+      NEW ARRIVALS
+    </h2>
+    <p class="cat-sub-title">find your favorite</p>
+  </div>
+</section>
+
+<section class="new-arivals categorys ">
+  <div class="container">
+    <div class="row">
+      {{#if data}}
+        {{#each data}}
+      <div class="col-sm-12 col-lg-4">
+        <a href="/item/get/{{this.id}}" class="text-decoration-none">
+          <img
+            class="cat-img w-100"
+            loading="lazy"
+            src="{{this.thumbnail}}"
+            alt="First slide"
+          />
+        </a>
+        <button id="{{this.id}}wishlist" onclick="addTowishList('{{this.id}}')" class="add-wishlist" title="Add To Wishlist" >
+          <div class="wish-round">
+            <i class="fa fa-heart" aria-hidden="true"></i>
+          </div>
+        </button>
+
+        <div class="p-3">
+          <a href="/item/get/{{this.id}}" class="text-decoration-none">
+            <p class="text-center prd-name">{{this.name}}</p>
+          </a>
+
+          <p class="tags">Motivation • Success • Wealth</p>
+          <p class="price">{{this.currency}} {{this.convertedPrice}}</p>
+        </div>
+      </div>
+      {{/each}}
+      {{else}}
+      <div class="col-12 text-center">
+       <h6 class="text-center text-uppercase text-info">No Items Available !</h6>
+      </div>
+      {{/if}}
+
+     
+
+     
+
+     
+    </div>
+  </div>
+</section>
+
+{{> footer}}

@@ -1,0 +1,42 @@
+{{> navbar}}
+    <div class="bg-light post-container py-4 mb-4 container-fluid cart-banner">
+        <div class="row">
+            <a style="text-decoration: none;" href="/user-post/{{firstPost.id}}">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <div class="card d-xl-flex d-sm-flex d-md-flex d-lg-flex flex-xl-row flex-md-row flex-lg-row">
+                        <img class="img-fluid" src="{{firstPost.imageUrl}}" height="500px" width="50%" alt="thumbnail"/>
+                        <div>
+                            <div class="card-header bg-white">
+                                <h3 class="card-title font-weight-bold">
+                                    {{firstPost.title}}
+                                </h3>
+                            </div>
+                            <div class="card-body text-dark">
+                                {{{firstPost.metaPost}}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="row mt-5">
+            {{#each data}}
+                <div class="col-xs-12 col-sm-4 xol-md-4 col-lg-4 col-xl-4">
+                    <a style="text-decoration: none;" href="/user-post/{{this.id}}">
+                        <div class="card h-100">
+                            <img class="img-fluid" src="{{this.imageUrl}}" height="500px" width="100%" alt="thumbnail"/>
+                            <div class="card-header bg-transparent">
+                                <h3 class="card-title font-weight-bold">
+                                    {{this.title}}
+                                </h3>
+                            </div>
+                            <div class="card-body text-dark">
+                                {{{this.metaPost}}}
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+{{> footer}}
